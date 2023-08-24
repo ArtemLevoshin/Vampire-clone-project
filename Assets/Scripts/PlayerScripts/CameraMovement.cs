@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
     public float moveSpeed = 10;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = Vector2.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("Capsule").transform.position, moveSpeed * Time.deltaTime);
     }
 }
